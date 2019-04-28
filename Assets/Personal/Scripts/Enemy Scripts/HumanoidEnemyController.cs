@@ -125,10 +125,11 @@ public class HumanoidEnemyController : EnemyController {
 
     private void DealExplosionDamage()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRadius, LayerMask.GetMask("Enemy", "Player"));
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRadius, LayerMask.GetMask("Enemy", "Spiders", "Player"));
         foreach (Collider hit in colliders)
         {
-            if (hit.gameObject.layer == LayerMask.NameToLayer("Enemy") && hit.gameObject != this.gameObject)
+            if ((hit.gameObject.layer == LayerMask.NameToLayer("Enemy") || hit.gameObject.layer == LayerMask.NameToLayer("Spiders"))
+                && hit.gameObject != this.gameObject)
             {
                 hit.gameObject.GetComponent<EnemyController>().takeDamage(hit.gameObject.transform.position);
             }

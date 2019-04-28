@@ -598,12 +598,8 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   difficultyManager: {fileID: 744898441}
-  baseSpawnLimits: 0300000001000000
-  spawnLimitsGrowth:
-  - 0.8
-  - 1.2
-  spawnLimits: 
   enemiesParent: {fileID: 0}
 --- !u!114 &1851651619850872098
 MonoBehaviour:
@@ -648,6 +644,12 @@ MonoBehaviour:
     - 0
     attackTypeCooldowns:
     - 0
+  - enemyType: 2
+    initialTokensPerAttackType: 01000000
+    tokenGrowthPerAttackType:
+    - 0
+    attackTypeCooldowns:
+    - 0.02
 --- !u!114 &1439987890184473724
 MonoBehaviour:
   m_ObjectHideFlags: 0

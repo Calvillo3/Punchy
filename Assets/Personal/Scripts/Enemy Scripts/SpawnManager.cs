@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour {
 
-    public enum EnemyType : int { Cylinder = 0, Humanoid };
+    public enum EnemyType : int { Cylinder = 0, Humanoid = 1, SpiderSwarm = 2 };
     [SerializeField] GameObject[] enemyPrefabs;
     [SerializeField] DifficultyManager difficultyManager;
     List<GameObject>[] enemies = new List<GameObject>[System.Enum.GetValues(typeof(EnemyType)).Length];
@@ -13,10 +13,10 @@ public class SpawnManager : MonoBehaviour {
     float[] spawnLimitsGrowth;
     int[] spawnLimits; 
     [SerializeField] GameObject enemiesParent;
-    float[] spawnTimers = { 0, 0 };
-    float[] baseTimesToNextSpawn = {1, 3 };
-    float[] spawnTimeRanges = {0.5f/2, 2/2};
-    float[] timesOfNextSpawn = {0, 0}; 
+    float[] spawnTimers = { 0, 0, 0 };
+    float[] baseTimesToNextSpawn = {1, 3, 4 };
+    float[] spawnTimeRanges = {0.5f/2, 2/2, 2/2};
+    float[] timesOfNextSpawn = {0, 0, 0}; 
     GameObject player;
     TethersTracker tethersTracker;
     DifficultyValues difficultyValues;
@@ -130,7 +130,7 @@ public class SpawnManager : MonoBehaviour {
         return false;
     }
 
-    GameObject FindSpawner()
+    public GameObject FindSpawner()
     {
         TetherController[] tethers = tethersTracker.Tethers;
         int[] weights = new int[tethers.Length];
@@ -159,7 +159,7 @@ public class SpawnManager : MonoBehaviour {
         return tethers[minWeightIndex].gameObject;
     }
 
-    void SpawnEnemy(EnemyType type, GameObject tether)
+    public void SpawnEnemy(EnemyType type, GameObject tether)
     {
         GameObject enemy = Instantiate(enemyPrefabs[(int)type], tether.transform.position, tether.transform.rotation, enemiesParent.transform);
         enemy.SetActive(true);

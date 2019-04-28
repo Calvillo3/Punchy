@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -22,8 +23,23 @@ public class PlayerHealth : MonoBehaviour
     AudioSource audioSource;
     AudioClip hitSound;
     private float overshieldMax;
+    private UnityAction<string> pauseListener;
 
-    // Use this for initialization
+    private void Awake()
+    {
+        pauseListener = new UnityAction<string>(ToggleGameOverCanvas);
+    }
+
+    private void OnEnable()
+    {
+        EventManager.StartListening("pause", pauseListener);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.StopListening("pause", pauseListener);
+    }
+
     void Start()
     {
         impactReceiver = gameObject.GetComponent<ImpactReceiver>();
@@ -125,10 +141,15 @@ public class PlayerHealth : MonoBehaviour
 
     private void GameOver()
     {
-        //gameOverText.gameObject.SetActive(true);
         gameOverCanvas.gameObject.SetActive(true);
         playerMover.Die();
         playerMover.MouseLook.SetCursorLock(false);
+    }
+
+    private void ToggleGameOverCanvas(string none)
+    {
+        if (gameOverCanvas.gameObject.activeSelf) gameOverCanvas.gameObject.SetActive(false);
+        else if (health <= 0) gameOverCanvas.gameObject.SetActive(true);
     }
 
     //to be implemented

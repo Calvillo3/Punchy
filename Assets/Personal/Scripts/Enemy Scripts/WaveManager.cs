@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WaveManager : MonoBehaviour
 {
+    private UnityAction<string> pauseListener;
     bool inWave = false;
+    bool isPaused = false;
     float timeSinceLastWaveEnd = 0f;
     float timeSinceWaveStart = 0f;
     float timeSinceSubWaveStart = 0f;
@@ -19,9 +22,21 @@ public class WaveManager : MonoBehaviour
     int subWaveEnemyNumber;
     bool spawning = false;
     float spawnTime = 0f;
-    
 
+    private void Awake()
+    {
+        pauseListener = new UnityAction<string>(Pause);
+    }
 
+    private void OnEnable()
+    {
+        EventManager.StartListening("pause", pauseListener);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.StopListening("pause", pauseListener);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -34,30 +49,34 @@ public class WaveManager : MonoBehaviour
     {
         // logic for checking the time since the wave ended and setting inWave = true
         // and reset that counter
+        if (!isPaused) // make sure no spawning happens while the game is paused
+        {
+            if (inWave)
+            {
+                totalEnemiesSpawned = spawnManager.TotalEnemiesSpawned;
+                if (totalEnemiesSpawned >= totalEnemiesInWave)
+                {
+                    WaveIsStagnant();
+                }
+                else
+                {
+                    InWave();
+                }
+            }
+            else
+            {
+                if (timeSinceLastWaveEnd >= timeBetweenWaves || waveCount == 0)
+                {
+                    StartWave();
+                }
+                else
+                {
+                    timeSinceLastWaveEnd += Time.unscaledDeltaTime;
+                }
+            }
+        }
 
-        if (inWave)  
-        {
-            totalEnemiesSpawned = spawnManager.TotalEnemiesSpawned;
-            if (totalEnemiesSpawned >= totalEnemiesInWave)
-            {
-                WaveIsStagnant();
-            }
-            else
-            {
-                InWave();
-            }
-        }
-        else
-        {
-            if (timeSinceLastWaveEnd >= timeBetweenWaves || waveCount == 0)
-            {
-                StartWave();
-            }
-            else
-            {
-                timeSinceLastWaveEnd += Time.unscaledDeltaTime;
-            }
-        }
+        
     }
 
 
@@ -114,6 +133,19 @@ public class WaveManager : MonoBehaviour
         spawnManager.TotalEnemiesSpawned = 0; // reset the spawn manager's count
         inWave = false;
         EventManager.TriggerEvent("newWave", (waveCount+1).ToString());
+    }
+
+    public int TimeBetweenWaves
+    {
+        get
+        {
+            return timeBetweenWaves;
+        }
+    }
+
+    public void Pause(string data)
+    {
+        isPaused = !isPaused;
     }
 
 }

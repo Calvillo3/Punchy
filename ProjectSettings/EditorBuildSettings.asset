@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 414bc2c54f8dc424880f68a698e84be1
@@ -18,9 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/VerticalArenaScene.unity
     guid: 9d66e8352e707194595a2e6764e4c5bf
   - enabled: 1
-    path: Assets/Scenes/VerticalArenaSceneEasy.unity
-    guid: 270c5f5e4ba94d2499c1cfeb476e4fa6
-  - enabled: 1
-    path: Assets/Scenes/VerticalArenaSceneHard.unity
-    guid: 672b531f79222c64d8ea97f0995a2442
+    path: Assets/Scenes/TutorialScene.unity
+    guid: 4b2453574e65de24096376950e538d62
   m_configObjects: {}

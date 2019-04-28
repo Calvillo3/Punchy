@@ -235,12 +235,13 @@ public class CylinderEnemyController : EnemyController
         }
 
         RaycastHit hit;
-        if (Physics.Raycast(activeLaser.transform.position, activeLaser.transform.forward, out hit, laserMaxLength, LayerMask.GetMask("Default", "Enemy", "Player")))
+        if (Physics.Raycast(activeLaser.transform.position, activeLaser.transform.forward, out hit, laserMaxLength, LayerMask.GetMask("Default", "Enemy", "Spiders", "Player")))
         {
             activeLaser.SetPosition(1, new Vector3(0, 0, Vector3.Distance(hit.point, transform.position)));
             if (firing)
             {
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Enemy") && hit.collider.gameObject != this.gameObject)
+                if ((hit.collider.gameObject.layer == LayerMask.NameToLayer("Enemy") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Spiders")) 
+                    && hit.collider.gameObject != this.gameObject)
                 {
                     hit.collider.gameObject.GetComponent<EnemyController>().takeDamage(hit.collider.gameObject.transform.position);
                 }

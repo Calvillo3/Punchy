@@ -60,8 +60,8 @@ public class ChargeController : MonoBehaviour {
         slowmoWheel.type = Image.Type.Filled;
         slowmoWheel.fillMethod = Image.FillMethod.Radial360;
         slowmoWheel.fillAmount = 0f;
-        enemyMask = LayerMask.GetMask("Enemy");
-        enemyAndDefaultMask = LayerMask.GetMask("Enemy", "Default");
+        enemyMask = LayerMask.GetMask("Enemy", "Spiders");
+        enemyAndDefaultMask = LayerMask.GetMask("Enemy", "Spiders", "Default");
         emptyMask = LayerMask.GetMask();
 		mainCamera = Camera.main;
         timeScaleManager = mainCamera.GetComponent<TimeScaleManager>();

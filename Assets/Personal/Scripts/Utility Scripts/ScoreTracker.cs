@@ -51,6 +51,14 @@ public class ScoreTracker : MonoBehaviour {
         }
     }
 
+    public void RegisterHit()
+    {
+        if (!dead)
+        {
+            timer = 0;
+        }
+    }
+
     public void CreateScoreInWorld(int score, Vector3 position)
     {
         GameObject newScoreCanvas = Instantiate(scoreCanvas);

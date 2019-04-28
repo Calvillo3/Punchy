@@ -1,5 +1,7 @@
 Test level footage as of early December: https://youtu.be/gNj2SkE29tU
 
+This project uses Unity version 2018.3.0f2
+
 Formatting:
 For all function definitions, use CamelCase
 For all internal variables, use mixedCase

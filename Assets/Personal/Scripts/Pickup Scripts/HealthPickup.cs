@@ -9,7 +9,7 @@ public class HealthPickup : PickupController
 
     private void OnTriggerEnter(Collider col)
     {
-      col.gameObject.GetComponent<PlayerHealth>().GainHealth(HealthAmount);
-      col.gameObject.GetComponent<PickupSpawner>().PickedUp(gameObject);  
+        col.gameObject.GetComponent<PlayerHealth>().GainHealth(HealthAmount);
+        col.gameObject.GetComponent<PickupSpawner>().PickedUp(gameObject);
     }
 }

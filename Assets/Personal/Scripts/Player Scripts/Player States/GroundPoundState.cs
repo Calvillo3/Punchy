@@ -32,7 +32,7 @@ public class GroundPoundState : PlayerState
 
         vulnerable = false;
         chargeController = playerMover.ChargeController;
-        enemyMask = LayerMask.GetMask("Enemy");
+        enemyMask = LayerMask.GetMask("Enemy", "Spiders");
     }
 
 
@@ -106,10 +106,7 @@ public class GroundPoundState : PlayerState
         Collider[] colliders = Physics.OverlapSphere(playerMover.transform.position, range, enemyMask);
         foreach (Collider hit in colliders)
         {
-            if (hit.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-            {
-                hit.gameObject.GetComponent<EnemyController>().takeDamage(hit.gameObject.transform.position);
-            }
+            hit.gameObject.GetComponent<EnemyController>().takeDamage(hit.gameObject.transform.position);
         }
     }
 
@@ -119,11 +116,9 @@ public class GroundPoundState : PlayerState
         foreach (Collider hit in colliders)
         {
             float forceMultiplier = physicsMaxForce / range;
-            if (hit.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-            {
-                //adds an impulse relative to how close they are to the center of the impact
-                hit.gameObject.GetComponent<ImpactReceiver>().AddImpact(hit.gameObject.transform.position - playerMover.transform.position, forceMultiplier*(Vector3.Distance(hit.gameObject.transform.position, playerMover.transform.position)));
-            }
+            //adds an impulse relative to how close they are to the center of the impact
+            hit.gameObject.GetComponent<ImpactReceiver>().AddImpact(hit.gameObject.transform.position - playerMover.transform.position,
+                forceMultiplier * (Vector3.Distance(hit.gameObject.transform.position, playerMover.transform.position)));
         }
     }
 

@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: e494a2e71abb43b4383321b9297026b5
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Abdomen
+    100002: BackFoot_L
+    100004: BackFoot_R
+    100006: BackLeg2_L
+    100008: BackLeg2_R
+    100010: BackLeg3_L
+    100012: BackLeg3_R
+    100014: BackLeg_L
+    100016: BackLeg_R
+    100018: Body
+    100020: Cube
+    100022: FrontFoot2_R
+    100024: FrontFoot_L
+    100026: FrontLeg2_L
+    100028: FrontLeg2_R
+    100030: FrontLeg3_L
+    100032: FrontLeg3_R
+    100034: FrontLeg_L
+    100036: FrontLeg_R
+    100038: Head
+    100040: MidBackFoot_L
+    100042: MidBackFoot_R
+    100044: MidBackLeg2_L
+    100046: MidBackLeg2_R
+    100048: MidBackLeg3_L
+    100050: MidBackLeg3_R
+    100052: MidBackLeg_L
+    100054: MidBackLeg_R
+    100056: MidFrontFoot_L
+    100058: MidFrontFoot_R
+    100060: MidFrontLeg2_L
+    100062: MidFrontLeg2_R
+    100064: MidFrontLeg3_L
+    100066: MidFrontLeg3_R
+    100068: MidFrontLeg_L
+    100070: MidFrontLeg_R
+    100072: PoleTarget_L
+    100074: PoleTarget_R
+    100076: Root
+    100078: //RootNode
+    100080: SpiderArmature
+    100082: Thorax
+    400000: Abdomen
+    400002: BackFoot_L
+    400004: BackFoot_R
+    400006: BackLeg2_L
+    400008: BackLeg2_R
+    400010: BackLeg3_L
+    400012: BackLeg3_R
+    400014: BackLeg_L
+    400016: BackLeg_R
+    400018: Body
+    400020: Cube
+    400022: FrontFoot2_R
+    400024: FrontFoot_L
+    400026: FrontLeg2_L
+    400028: FrontLeg2_R
+    400030: FrontLeg3_L
+    400032: FrontLeg3_R
+    400034: FrontLeg_L
+    400036: FrontLeg_R
+    400038: Head
+    400040: MidBackFoot_L
+    400042: MidBackFoot_R
+    400044: MidBackLeg2_L
+    400046: MidBackLeg2_R
+    400048: MidBackLeg3_L
+    400050: MidBackLeg3_R
+    400052: MidBackLeg_L
+    400054: MidBackLeg_R
+    400056: MidFrontFoot_L
+    400058: MidFrontFoot_R
+    400060: MidFrontLeg2_L
+    400062: MidFrontLeg2_R
+    400064: MidFrontLeg3_L
+    400066: MidFrontLeg3_R
+    400068: MidFrontLeg_L
+    400070: MidFrontLeg_R
+    400072: PoleTarget_L
+    400074: PoleTarget_R
+    400076: Root
+    400078: //RootNode
+    400080: SpiderArmature
+    400082: Thorax
+    2100000: Material
+    2100002: Material_001
+    4300000: Cube
+    7400000: Default Take
+    7400002: Spider_Attack
+    7400004: Spider_Death
+    7400006: Spider_Idle
+    7400008: Spider_Jump
+    7400010: Spider_Walk
+    9500000: //RootNode
+    13700000: Cube
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
