@@ -60,8 +60,9 @@ public class ChargeController : MonoBehaviour {
         slowmoWheel.type = Image.Type.Filled;
         slowmoWheel.fillMethod = Image.FillMethod.Radial360;
         slowmoWheel.fillAmount = 0f;
-        enemyMask = LayerMask.GetMask("Enemy", "Spiders");
-        enemyAndDefaultMask = LayerMask.GetMask("Enemy", "Spiders", "Default");
+		//TESTING
+        enemyMask = LayerMask.GetMask("Enemy", "Spiders" /*, "Pickups" */);
+        enemyAndDefaultMask = LayerMask.GetMask("Enemy", "Spiders", "Default" /*, "Pickups" */);
         emptyMask = LayerMask.GetMask();
 		mainCamera = Camera.main;
         timeScaleManager = mainCamera.GetComponent<TimeScaleManager>();
@@ -212,6 +213,11 @@ public class ChargeController : MonoBehaviour {
             {
                 return attackHit;
             }
+			/*
+			 else if (attackHit.transform.gameObject.tag == "Pickup")
+            {
+                return attackHit;
+            } */
         }
 
         RaycastHit[] hits = Physics.SphereCastAll(attackRay, radius, attackRange, enemyMask);
@@ -240,6 +246,15 @@ public class ChargeController : MonoBehaviour {
                             distance = attackHit.distance;
                         }
                     }
+					/*
+					    else if (attackHit.transform.gameObject.tag == "Pickup")
+                    {
+                        if (attackHit.distance < distance)
+                        {
+                            closestHit = hit;
+                            distance = attackHit.distance;
+                        }
+                    } */
                 }
             }
             return closestHit;
